@@ -129,6 +129,15 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.openrewrite.maven</groupId>
+				<artifactId>rewrite-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<activeProfiles>spring</activeProfiles>
+					<configLocation>rewrite.yml</configLocation>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>flatten-maven-plugin</artifactId>
 			</plugin>
