@@ -76,7 +76,7 @@ public class RequestHeaderSizeGatewayFilterFactoryTest extends BaseWebClientTest
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_request_header_size",
 					r -> r.order(-1).host("**.test.org").filters(
 							f -> f.setRequestHeaderSize(DataSize.of(46L, DataUnit.BYTES)))

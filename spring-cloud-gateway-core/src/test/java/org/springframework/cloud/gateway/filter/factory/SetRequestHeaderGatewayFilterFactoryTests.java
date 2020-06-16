@@ -78,7 +78,7 @@ public class SetRequestHeaderGatewayFilterFactoryTests extends BaseWebClientTest
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_set_request_header",
 					r -> r.order(-1).host("{sub}.setrequestheader.org")
 							.filters(f -> f.prefixPath("/httpbin")

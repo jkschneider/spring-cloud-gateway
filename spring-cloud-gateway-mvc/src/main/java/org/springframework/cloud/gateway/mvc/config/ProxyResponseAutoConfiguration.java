@@ -56,7 +56,7 @@ public class ProxyResponseAutoConfiguration implements WebMvcConfigurer {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public ProxyExchangeArgumentResolver proxyExchangeArgumentResolver(
+	ProxyExchangeArgumentResolver proxyExchangeArgumentResolver(
 			Optional<RestTemplateBuilder> optional, ProxyProperties proxy) {
 		RestTemplateBuilder builder = optional.orElse(new RestTemplateBuilder());
 		RestTemplate template = builder.build();

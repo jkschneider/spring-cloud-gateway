@@ -84,7 +84,7 @@ public class CloudFoundryRouteServiceRoutePredicateFactoryIntegrationTests
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+		RouteLocator routeLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route(r -> r.cloudFoundryRouteService().and()
 					.header("Host", "dsl.routeservice.example.com")
 					.filters(f -> f.requestHeaderToRequestUri("X-CF-Forwarded-Url"))

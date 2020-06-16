@@ -31,7 +31,7 @@ import org.springframework.cloud.gateway.test.BaseWebClientTests;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -42,9 +42,6 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.C
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-/**
- * @author Ryan Baxter
- */
 @EnableAutoConfiguration
 @SpringBootConfiguration
 @Import(BaseWebClientTests.DefaultTestConfig.class)
@@ -55,23 +52,23 @@ public class SpringCloudCircuitBreakerTestConfig {
 	@Value("${test.uri}")
 	private String uri;
 
-	@RequestMapping("/circuitbreakerFallbackController")
-	public Map<String, String> fallbackcontroller(@RequestParam("a") String a) {
+	@GetMapping("/circuitbreakerFallbackController")
+	public Map<String, String> fallbackcontroller(@RequestParam String a) {
 		return Collections.singletonMap("from", "circuitbreakerfallbackcontroller");
 	}
 
-	@RequestMapping("/circuitbreakerFallbackController2")
+	@GetMapping("/circuitbreakerFallbackController2")
 	public Map<String, String> fallbackcontroller2() {
 		return Collections.singletonMap("from", "circuitbreakerfallbackcontroller2");
 	}
 
-	@RequestMapping("/circuitbreakerFallbackController3")
+	@GetMapping("/circuitbreakerFallbackController3")
 	public Map<String, String> fallbackcontroller3() {
 		return Collections.singletonMap("from", "circuitbreakerfallbackcontroller3");
 	}
 
 	@Bean
-	public RouteLocator circuitBreakerRouteLocator(RouteLocatorBuilder builder) {
+	RouteLocator circuitBreakerRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes().route("circuitbreaker_fallback_forward",
 				r -> r.host("**.circuitbreakerforward.org")
 						.filters(f -> f.circuitBreaker(

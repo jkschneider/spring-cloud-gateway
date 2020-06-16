@@ -133,7 +133,7 @@ public class ModifyRequestBodyGatewayFilterFactorySslTimeoutTests
 
 		@Bean
 		@DependsOn("testModifyRequestBodyGatewayFilterFactory")
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_modify_request_body_ssl_timeout",
 					r -> r.order(-1).host("**.modifyrequestbodyssltimeout.org")
 							.filters(f -> f.modifyRequestBody(String.class, String.class,
@@ -156,13 +156,13 @@ public class ModifyRequestBodyGatewayFilterFactorySslTimeoutTests
 		}
 
 		@Bean
-		public AtomicInteger count() {
+		AtomicInteger count() {
 			return new AtomicInteger();
 		}
 
 		@Bean
 		@Primary
-		public ModifyRequestBodyGatewayFilterFactory testModifyRequestBodyGatewayFilterFactory(
+		ModifyRequestBodyGatewayFilterFactory testModifyRequestBodyGatewayFilterFactory(
 				ServerCodecConfigurer codecConfigurer, AtomicInteger count) {
 			return new ModifyRequestBodyGatewayFilterFactory(
 					codecConfigurer.getReaders()) {

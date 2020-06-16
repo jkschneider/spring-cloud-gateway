@@ -53,7 +53,7 @@ public class HttpStatusInResponseHeadersFilterTests extends BaseWebClientTests {
 	public static class TestConfig {
 
 		@Bean
-		public HttpHeadersFilter checkStatusFilter() {
+		HttpHeadersFilter checkStatusFilter() {
 			return new HttpHeadersFilter() {
 				@Override
 				public HttpHeaders filter(HttpHeaders input, ServerWebExchange exchange) {

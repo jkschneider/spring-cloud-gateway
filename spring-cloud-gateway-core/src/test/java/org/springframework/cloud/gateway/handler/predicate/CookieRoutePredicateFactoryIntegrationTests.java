@@ -57,7 +57,7 @@ public class CookieRoutePredicateFactoryIntegrationTests extends BaseWebClientTe
 	public static class TestConfig {
 
 		@GetMapping("/httpbin/cookie")
-		public String cookie(@CookieValue("mycookie") String mycookie) {
+		public String cookie(@CookieValue String mycookie) {
 			return mycookie;
 		}
 

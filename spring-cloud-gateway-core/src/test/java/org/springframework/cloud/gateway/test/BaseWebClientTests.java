@@ -89,18 +89,18 @@ public class BaseWebClientTests {
 		private static final Log log = LogFactory.getLog(DefaultTestConfig.class);
 
 		@Bean
-		public HttpBinCompatibleController httpBinController() {
+		HttpBinCompatibleController httpBinController() {
 			return new HttpBinCompatibleController();
 		}
 
 		@Bean
-		public RecursiveHttpbinFilter recursiveHttpbinFilter() {
+		RecursiveHttpbinFilter recursiveHttpbinFilter() {
 			return new RecursiveHttpbinFilter();
 		}
 
 		@Bean
 		@Order(500)
-		public GlobalFilter modifyResponseFilter() {
+		GlobalFilter modifyResponseFilter() {
 			return (exchange, chain) -> {
 				log.info("modifyResponseFilter start");
 				String value = exchange.getAttributeOrDefault(GATEWAY_HANDLER_MAPPER_ATTR,
@@ -147,7 +147,7 @@ public class BaseWebClientTests {
 		protected int port = 0;
 
 		@Bean
-		public ServiceInstanceListSupplier staticServiceInstanceListSupplier(
+		ServiceInstanceListSupplier staticServiceInstanceListSupplier(
 				Environment env) {
 			return ServiceInstanceListSupplier.fixed(env).instance(port, SERVICE_ID)
 					.build();

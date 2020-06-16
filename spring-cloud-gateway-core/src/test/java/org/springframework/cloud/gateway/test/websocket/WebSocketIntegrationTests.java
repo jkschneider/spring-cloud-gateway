@@ -269,17 +269,17 @@ public class WebSocketIntegrationTests {
 	static class WebSocketTestConfig {
 
 		@Bean
-		public DispatcherHandler webHandler() {
+		DispatcherHandler webHandler() {
 			return new DispatcherHandler();
 		}
 
 		@Bean
-		public WebSocketHandlerAdapter handlerAdapter() {
+		WebSocketHandlerAdapter handlerAdapter() {
 			return new WebSocketHandlerAdapter(webSocketService());
 		}
 
 		@Bean
-		public WebSocketService webSocketService() {
+		WebSocketService webSocketService() {
 			return new HandshakeWebSocketService(getUpgradeStrategy());
 		}
 
@@ -288,7 +288,7 @@ public class WebSocketIntegrationTests {
 		}
 
 		@Bean
-		public HandlerMapping handlerMapping() {
+		HandlerMapping handlerMapping() {
 			Map<String, WebSocketHandler> map = new HashMap<>();
 			map.put("/echo", new EchoWebSocketHandler());
 			map.put("/echoForHttp", new EchoWebSocketHandler());
@@ -367,7 +367,7 @@ public class WebSocketIntegrationTests {
 	protected static class GatewayConfig {
 
 		@Bean
-		public RouteLocator wsRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator wsRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route(r -> r.path("/echoForHttp").uri("lb://wsservice"))
 					.route(r -> r.alwaysTrue().uri("lb:ws://wsservice")).build();
@@ -381,7 +381,7 @@ public class WebSocketIntegrationTests {
 		private int wsPort;
 
 		@Bean
-		public ServiceInstanceListSupplier staticServiceInstanceListSupplier(
+		ServiceInstanceListSupplier staticServiceInstanceListSupplier(
 				Environment env) {
 			return ServiceInstanceListSupplier.fixed(env).instance(wsPort, "wsservice")
 					.build();

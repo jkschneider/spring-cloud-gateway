@@ -50,7 +50,7 @@ public class GatewayNoLoadBalancerClientAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean(ReactiveLoadBalancerClientFilter.class)
-	public NoLoadBalancerClientFilter noLoadBalancerClientFilter(
+	NoLoadBalancerClientFilter noLoadBalancerClientFilter(
 			LoadBalancerProperties properties) {
 		return new NoLoadBalancerClientFilter(properties.isUse404());
 	}

@@ -45,7 +45,7 @@ public class GatewayReactiveLoadBalancerClientAutoConfiguration {
 	@Bean
 	@ConditionalOnBean(LoadBalancerClientFactory.class)
 	@ConditionalOnMissingBean(ReactiveLoadBalancerClientFilter.class)
-	public ReactiveLoadBalancerClientFilter gatewayLoadBalancerClientFilter(
+	ReactiveLoadBalancerClientFilter gatewayLoadBalancerClientFilter(
 			LoadBalancerClientFactory clientFactory, LoadBalancerProperties properties) {
 		return new ReactiveLoadBalancerClientFilter(clientFactory, properties);
 	}

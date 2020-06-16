@@ -43,7 +43,7 @@ public class RouteConstructionIntegrationTests {
 	public static class TestConfig {
 
 		@Bean
-		public TestFilterGatewayFilterFactory testFilterGatewayFilterFactory() {
+		TestFilterGatewayFilterFactory testFilterGatewayFilterFactory() {
 			return new TestFilterGatewayFilterFactory();
 		}
 

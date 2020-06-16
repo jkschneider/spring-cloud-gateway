@@ -50,7 +50,7 @@ public class ProxyResponseAutoConfiguration implements WebFluxConfigurer {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public ProxyExchangeArgumentResolver proxyExchangeArgumentResolver(
+	ProxyExchangeArgumentResolver proxyExchangeArgumentResolver(
 			Optional<WebClient.Builder> optional, ProxyProperties proxy) {
 		WebClient.Builder builder = optional.orElse(WebClient.builder());
 		WebClient template = builder.build();

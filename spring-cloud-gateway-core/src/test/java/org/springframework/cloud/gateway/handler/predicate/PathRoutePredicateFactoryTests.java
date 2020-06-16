@@ -116,7 +116,7 @@ public class PathRoutePredicateFactoryTests extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("path_multi_dsl", r -> r.host("**.pathmultidsl.org").and()
 							.path(false, "/anything/multidsl1", "/anything/multidsl3")

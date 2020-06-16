@@ -64,7 +64,7 @@ public class ModifyResponseBodyGatewayFilterFactoryGzipTests extends BaseWebClie
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("modify_response_java_test_gzip",
 					r -> r.path("/gzip").and().host("www.modifyresponsebodyjava.org")
 							.filters(f -> f.modifyResponseBody(String.class, Map.class,

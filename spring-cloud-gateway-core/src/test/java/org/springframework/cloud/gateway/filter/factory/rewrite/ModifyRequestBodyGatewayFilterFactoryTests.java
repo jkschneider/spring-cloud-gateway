@@ -87,7 +87,7 @@ public class ModifyRequestBodyGatewayFilterFactoryTests extends BaseWebClientTes
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_modify_request_body",
 					r -> r.order(-1).host("**.modifyrequestbody.org")
 							.filters(f -> f.modifyRequestBody(String.class, String.class,

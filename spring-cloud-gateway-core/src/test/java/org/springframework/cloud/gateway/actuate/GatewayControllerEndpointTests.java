@@ -207,12 +207,12 @@ public class GatewayControllerEndpointTests {
 		}
 
 		@Bean
-		public TestFilterGatewayFilterFactory customGatewayFilterFactory() {
+		TestFilterGatewayFilterFactory customGatewayFilterFactory() {
 			return new TestFilterGatewayFilterFactory();
 		}
 
 		@Bean
-		public TestRoutePredicateFactory customGatewayPredicateFactory() {
+		TestRoutePredicateFactory customGatewayPredicateFactory() {
 			return new TestRoutePredicateFactory(Object.class);
 		}
 

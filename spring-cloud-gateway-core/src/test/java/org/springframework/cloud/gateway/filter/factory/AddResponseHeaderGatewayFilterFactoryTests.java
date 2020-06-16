@@ -81,7 +81,7 @@ public class AddResponseHeaderGatewayFilterFactoryTests extends BaseWebClientTes
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("add_response_header_java_test",
 					r -> r.path("/get").and().host("{sub}.addresponseheaderjava.org")
 							.filters(f -> f.prefixPath("/httpbin").addResponseHeader(

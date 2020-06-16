@@ -111,7 +111,7 @@ public class SetStatusGatewayFilterFactoryTests extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator enumRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator enumRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("test_enum_http_status", r -> r.host("*.setenumstatus.org")
 							.filters(f -> f.setStatus(HttpStatus.UNAUTHORIZED)).uri(uri))
@@ -129,7 +129,7 @@ public class SetStatusGatewayFilterFactoryTests extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator myRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator myRouteLocator(RouteLocatorBuilder builder) {
 			// @formatter:off
 			return builder.routes()
 					.route("test_custom_http_status",

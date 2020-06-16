@@ -47,7 +47,7 @@ class GatewayRedisAutoConfiguration {
 
 	@Bean
 	@SuppressWarnings("unchecked")
-	public RedisScript redisRequestRateLimiterScript() {
+	RedisScript redisRequestRateLimiterScript() {
 		DefaultRedisScript redisScript = new DefaultRedisScript<>();
 		redisScript.setScriptSource(new ResourceScriptSource(
 				new ClassPathResource("META-INF/scripts/request_rate_limiter.lua")));
@@ -57,7 +57,7 @@ class GatewayRedisAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public RedisRateLimiter redisRateLimiter(ReactiveStringRedisTemplate redisTemplate,
+	RedisRateLimiter redisRateLimiter(ReactiveStringRedisTemplate redisTemplate,
 			@Qualifier(RedisRateLimiter.REDIS_SCRIPT_NAME) RedisScript<List<Long>> redisScript,
 			ConfigurationService configurationService) {
 		return new RedisRateLimiter(redisTemplate, redisScript, configurationService);

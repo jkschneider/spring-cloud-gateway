@@ -75,7 +75,7 @@ public class RequestSizeGatewayFilterFactoryTest extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("test_request_size",
 							r -> r.order(-1).host("**.setrequestsize.org")

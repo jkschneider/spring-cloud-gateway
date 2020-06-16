@@ -80,7 +80,7 @@ public class GatewayDiscoveryClientAutoConfiguration {
 	}
 
 	@Bean
-	public DiscoveryLocatorProperties discoveryLocatorProperties() {
+	DiscoveryLocatorProperties discoveryLocatorProperties() {
 		DiscoveryLocatorProperties properties = new DiscoveryLocatorProperties();
 		properties.setPredicates(initPredicates());
 		properties.setFilters(initFilters());
@@ -94,7 +94,7 @@ public class GatewayDiscoveryClientAutoConfiguration {
 
 		@Bean
 		@ConditionalOnProperty(name = "spring.cloud.gateway.discovery.locator.enabled")
-		public DiscoveryClientRouteDefinitionLocator discoveryClientRouteDefinitionLocator(
+		DiscoveryClientRouteDefinitionLocator discoveryClientRouteDefinitionLocator(
 				ReactiveDiscoveryClient discoveryClient,
 				DiscoveryLocatorProperties properties) {
 			return new DiscoveryClientRouteDefinitionLocator(discoveryClient, properties);

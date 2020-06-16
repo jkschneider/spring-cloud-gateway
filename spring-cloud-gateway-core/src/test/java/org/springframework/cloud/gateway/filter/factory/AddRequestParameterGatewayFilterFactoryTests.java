@@ -127,7 +127,7 @@ public class AddRequestParameterGatewayFilterFactoryTests extends BaseWebClientT
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("add_request_param_java_test",
 					r -> r.path("/get").and().host("{sub}.addreqparamjava.org")
 							.filters(f -> f.prefixPath("/httpbin")

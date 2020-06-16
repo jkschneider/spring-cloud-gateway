@@ -64,7 +64,7 @@ public class GatewayNoLoadBalancerClientAutoConfigurationTests {
 	public static class Config {
 
 		@Bean
-		public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+		RouteLocator routeLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("lb_fail", r -> r.host("**.lbfail.org").uri("lb://fail"))
 					.build();

@@ -110,7 +110,7 @@ public class MethodRoutePredicateFactoryTests extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("method_test_get",
 							r -> r.method("GET").and().path("/get")

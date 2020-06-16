@@ -97,7 +97,7 @@ public class WeightRoutePredicateFactoryIntegrationTests extends BaseWebClientTe
 		}
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("weight_low_test",
 							r -> r.weight("group1", 2).and().host("**.weightlow.org")

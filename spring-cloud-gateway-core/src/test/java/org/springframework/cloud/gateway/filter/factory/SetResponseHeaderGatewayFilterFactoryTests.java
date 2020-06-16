@@ -72,7 +72,7 @@ public class SetResponseHeaderGatewayFilterFactoryTests extends BaseWebClientTes
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_set_response_header_dsl",
 					r -> r.order(-1).host("{sub}.setresponseheaderdsl.org")
 							.filters(f -> f.prefixPath("/httpbin")

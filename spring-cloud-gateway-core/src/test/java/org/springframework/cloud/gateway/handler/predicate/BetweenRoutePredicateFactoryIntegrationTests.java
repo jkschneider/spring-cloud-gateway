@@ -70,7 +70,7 @@ public class BetweenRoutePredicateFactoryIntegrationTests extends BaseWebClientT
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("test_between_valid",
 							r -> r.host("**.betweenvalid.org").and()

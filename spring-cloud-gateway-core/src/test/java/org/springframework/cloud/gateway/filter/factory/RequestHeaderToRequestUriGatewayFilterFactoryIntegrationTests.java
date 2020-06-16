@@ -87,7 +87,7 @@ public class RequestHeaderToRequestUriGatewayFilterFactoryIntegrationTests
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+		RouteLocator routeLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route(r -> r.host("**.changeuri.org").and().header("X-Next-Url")
 							.filters(f -> f.requestHeaderToRequestUri("X-Next-Url"))

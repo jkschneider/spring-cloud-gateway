@@ -134,7 +134,7 @@ public class ShortcutConfigurableTests {
 	protected static class TestConfig {
 
 		@Bean
-		public Integer foo() {
+		Integer foo() {
 			return 42;
 		}
 

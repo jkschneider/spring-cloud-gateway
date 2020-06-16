@@ -71,7 +71,7 @@ public class RedirectToGatewayFilterFactoryTests extends BaseWebClientTests {
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("relative_redirect",
 					r -> r.host("**.relativeredirect.org")
 							.filters(f -> f.redirect(302, "/index.html#/customers"))

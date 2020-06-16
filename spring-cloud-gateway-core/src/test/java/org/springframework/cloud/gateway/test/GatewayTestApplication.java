@@ -48,7 +48,7 @@ public class GatewayTestApplication {
 	protected static class GatewayDiscoveryConfiguration {
 
 		@Bean
-		public DiscoveryClientRouteDefinitionLocator discoveryClientRouteLocator(
+		DiscoveryClientRouteDefinitionLocator discoveryClientRouteLocator(
 				ReactiveDiscoveryClient discoveryClient,
 				DiscoveryLocatorProperties properties) {
 			return new DiscoveryClientRouteDefinitionLocator(discoveryClient, properties);

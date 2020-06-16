@@ -44,7 +44,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.http.server.reactive.HttpHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.DispatcherHandler;
 import org.springframework.web.reactive.config.EnableWebFlux;
@@ -56,9 +56,6 @@ import static org.springframework.core.ResolvableType.forClassWithGenerics;
 import static org.springframework.http.MediaType.TEXT_EVENT_STREAM;
 import static org.springframework.web.reactive.function.BodyExtractors.toFlux;
 
-/**
- * @author Sebastien Deleuze
- */
 public class SseIntegrationTests {
 
 	public HttpServer server;
@@ -202,17 +199,17 @@ public class SseIntegrationTests {
 
 		private static final Flux<Long> INTERVAL = interval(Duration.ofMillis(100), 50);
 
-		@RequestMapping("/sse/string")
+		@GetMapping("/sse/string")
 		Flux<String> string() {
 			return INTERVAL.map(l -> "foo " + l);
 		}
 
-		@RequestMapping("/sse/person")
+		@GetMapping("/sse/person")
 		Flux<Person> person() {
 			return INTERVAL.map(l -> new Person("foo " + l));
 		}
 
-		@RequestMapping("/sse/event")
+		@GetMapping("/sse/event")
 		Flux<ServerSentEvent<String>> sse() {
 			return INTERVAL.map(l -> ServerSentEvent.builder("foo").id(Long.toString(l))
 					.comment("bar").build());
@@ -226,7 +223,7 @@ public class SseIntegrationTests {
 	static class TestConfiguration {
 
 		@Bean
-		public SseController sseController() {
+		SseController sseController() {
 			return new SseController();
 		}
 
@@ -241,7 +238,7 @@ public class SseIntegrationTests {
 		private int port;
 
 		@Bean
-		public RouteLocator sseRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator sseRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("sse_route",
 							r -> r.alwaysTrue().uri("http://localhost:" + this.port))

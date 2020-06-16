@@ -89,7 +89,7 @@ public class ModifyResponseBodyGatewayFilterFactoryTests extends BaseWebClientTe
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("modify_response_java_test",
 					r -> r.path("/").and().host("www.modifyresponsebodyjava.org")
 							.filters(f -> f.prefixPath("/httpbin").modifyResponseBody(

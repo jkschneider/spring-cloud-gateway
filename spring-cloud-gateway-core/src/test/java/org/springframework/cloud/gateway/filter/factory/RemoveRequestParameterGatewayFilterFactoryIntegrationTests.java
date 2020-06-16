@@ -74,7 +74,7 @@ public class RemoveRequestParameterGatewayFilterFactoryIntegrationTests
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("removerequestparam_java_test", r -> r
 					.path("/get").and().host("**.removerequestparamjava.org")
 					.filters(f -> f.prefixPath("/httpbin").removeRequestParameter("foo"))

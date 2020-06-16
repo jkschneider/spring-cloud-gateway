@@ -97,7 +97,7 @@ public class ReadBodyPredicateFactoryTest {
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+		RouteLocator routeLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route(p -> p.path("/events").and().method(HttpMethod.POST).and()
 							.readBody(Event.class, eventPredicate("message.channels"))

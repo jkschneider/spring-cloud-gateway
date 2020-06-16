@@ -79,7 +79,7 @@ public class NonStandardHeadersInResponseTests extends BaseWebClientTests {
 
 		@Bean
 		@Order(5001)
-		public GlobalFilter addNonStandardHeaderFilter() {
+		GlobalFilter addNonStandardHeaderFilter() {
 			return (exchange, chain) -> {
 				log.info("addNonStandardHeaderFilter pre phase");
 				return chain.filter(exchange).then(Mono.fromRunnable(() -> {
@@ -91,7 +91,7 @@ public class NonStandardHeadersInResponseTests extends BaseWebClientTests {
 		}
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route("non_standard_header_route", r -> r.path("/get-image/**")
 							.filters(f -> f.addRequestHeader(HttpHeaders.HOST,

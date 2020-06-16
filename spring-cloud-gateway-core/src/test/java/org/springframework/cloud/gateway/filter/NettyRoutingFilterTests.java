@@ -56,7 +56,7 @@ public class NettyRoutingFilterTests {
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator routes(RouteLocatorBuilder builder) {
+		RouteLocator routes(RouteLocatorBuilder builder) {
 			return builder.routes()
 					.route(p -> p.path("/mockexample")
 							.filters(f -> f.prefixPath("/httpbin"))

@@ -206,7 +206,7 @@ public class GatewaySampleApplicationTests {
 	protected static class TestConfig {
 
 		@Bean
-		public HttpBinCompatibleController httpBinCompatibleController() {
+		HttpBinCompatibleController httpBinCompatibleController() {
 			return new HttpBinCompatibleController();
 		}
 
@@ -218,7 +218,7 @@ public class GatewaySampleApplicationTests {
 		int port;
 
 		@Bean
-		public ServiceInstanceListSupplier fixedServiceInstanceListSupplier(
+		ServiceInstanceListSupplier fixedServiceInstanceListSupplier(
 				Environment env) {
 			return ServiceInstanceListSupplier.fixed(env)
 					.instance("localhost", port, "httpbin").build();

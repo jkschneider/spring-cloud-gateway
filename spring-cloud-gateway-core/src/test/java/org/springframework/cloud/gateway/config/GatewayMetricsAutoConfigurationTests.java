@@ -104,7 +104,7 @@ public class GatewayMetricsAutoConfigurationTests {
 	protected static class CustomTagsProviderConfig {
 
 		@Bean
-		public GatewayTagsProvider emptyTagsProvider() {
+		GatewayTagsProvider emptyTagsProvider() {
 			return new EmptyTagsProvider();
 		}
 

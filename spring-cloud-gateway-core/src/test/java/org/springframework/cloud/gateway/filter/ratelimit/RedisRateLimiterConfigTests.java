@@ -102,7 +102,7 @@ public class RedisRateLimiterConfigTests {
 	public static class TestConfig {
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("custom_redis_rate_limiter",
 					r -> r.path("/custom").filters(f -> f.requestRateLimiter()
 							.rateLimiter(RedisRateLimiter.class,
@@ -119,7 +119,7 @@ public class RedisRateLimiterConfigTests {
 		}
 
 		@Bean
-		public RedisRateLimiter myRateLimiter() {
+		RedisRateLimiter myRateLimiter() {
 			return new RedisRateLimiter(30, 60, 20);
 		}
 

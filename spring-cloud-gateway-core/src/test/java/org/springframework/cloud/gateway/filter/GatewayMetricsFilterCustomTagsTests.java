@@ -82,7 +82,7 @@ public class GatewayMetricsFilterCustomTagsTests extends BaseWebClientTests {
 	public static class CustomConfig {
 
 		@Bean
-		public GatewayTagsProvider customGatewayTagsProvider() {
+		GatewayTagsProvider customGatewayTagsProvider() {
 			return exchange -> Tags.of("custom1", "tag1", "custom2", "tag2");
 		}
 

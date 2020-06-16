@@ -54,7 +54,7 @@ public class GatewaySampleApplication {
 	}
 
 	@Bean
-	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+	RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		//@formatter:off
 		// String uri = "http://httpbin.org:80";
 		// String uri = "http://localhost:9080";
@@ -156,7 +156,7 @@ public class GatewaySampleApplication {
 	}
 
 	@Bean
-	public RouterFunction<ServerResponse> testFunRouterFunction() {
+	RouterFunction<ServerResponse> testFunRouterFunction() {
 		RouterFunction<ServerResponse> route = RouterFunctions.route(
 				RequestPredicates.path("/testfun"),
 				request -> ServerResponse.ok().body(BodyInserters.fromValue("hello")));
@@ -164,7 +164,7 @@ public class GatewaySampleApplication {
 	}
 
 	@Bean
-	public RouterFunction<ServerResponse> testWhenMetricPathIsNotMeet() {
+	RouterFunction<ServerResponse> testWhenMetricPathIsNotMeet() {
 		RouterFunction<ServerResponse> route = RouterFunctions.route(
 				RequestPredicates.path("/actuator/metrics/gateway.requests"),
 				request -> ServerResponse.ok().body(BodyInserters

@@ -96,7 +96,7 @@ public class RemoteAddrRoutePredicateFactoryTests extends BaseWebClientTests {
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("x_forwarded_for_test", r -> r
 					.path("/xforwardfor").and()
 					.remoteAddr(XForwardedRemoteAddressResolver.maxTrustedIndex(1),

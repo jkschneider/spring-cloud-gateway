@@ -76,7 +76,7 @@ public class PreserveHostHeaderGatewayFilterFactoryTests extends BaseWebClientTe
 		String uri;
 
 		@Bean
-		public RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
+		RouteLocator testRouteLocator(RouteLocatorBuilder builder) {
 			return builder.routes().route("test_preserve_host_header",
 					r -> r.order(-1).host("**.preservehostheader.org")
 							.filters(f -> f.prefixPath("/httpbin").preserveHostHeader()

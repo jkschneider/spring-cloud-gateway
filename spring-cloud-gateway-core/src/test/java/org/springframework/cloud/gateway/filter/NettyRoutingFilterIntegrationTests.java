@@ -136,7 +136,7 @@ public class NettyRoutingFilterIntegrationTests extends BaseWebClientTests {
 
 		@Bean
 		@Order(RouteToRequestUrlFilter.HIGHEST_PRECEDENCE)
-		public ResponseDecoratingFilter decoratingFilter() {
+		ResponseDecoratingFilter decoratingFilter() {
 			return new ResponseDecoratingFilter();
 		}
 
